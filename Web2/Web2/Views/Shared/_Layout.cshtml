@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <img src="http://img.findtm.ru/img/tz_registered_img/33/332360.jpg" align="left" width="80" height="50">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Help Admission IKIT", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
+        </div>
+        <div class="navbar-collapse collapse" >
+           
+                <ul class="nav navbar-nav" >
+                    <li>@Html.ActionLink("Предметы", "Subject", "Home")</li>
+                    <li>@Html.ActionLink("Об институте", "About", "Home")</li>
+                    <li>@Html.ActionLink("Контакты", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Форум", "Forum", "Home")</li>
+                    @if (User.IsInRole("admin"))
+                    {
+                    <li>@Html.ActionLink("Администраторская часть", "EditingIndex", "Home")</li>
+                    }
+                </ul>
+           
+                        
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year -@Html.ActionLink("Команда разработчиков", "Contact", "Home")</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
