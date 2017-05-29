@@ -1,0 +1,21 @@
+﻿@model Web2.Models.SubjectModel
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h2></h2>
+<fieldset>       
+   @using (Html.BeginForm())
+   {
+       <div class="editor-label">Номер id урока</div>
+    <div class="editor-field">
+        @Html.TextBox("Id")
+    </div>
+   
+    <input type="submit" value="Удалить" />
+   }  
+</fieldset>
+
+

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Web2.Models.SubjectModel>
+@{
+    ViewBag.Title = "Математика";
+}
+
+<h2>Математика</h2>
+<body>
+    <div class="row">
+        <div class="container object">
+
+            <div id="main-container-image" style="opacity: 1;">
+
+                <section class="work">
+                    @foreach (var t in Model)
+                    {
+                        if (t.NameSubject == "Математика")
+                        {
+                            <figure class="white">
+                                <a href="#@t.Id">
+                                    @Html.Raw("<img style='width:339px; margin-right:20px; margin-top:15px; height:215px; ' src=\"data:image/jpeg;base64,"
+                                              + Convert.ToBase64String(t.Image) + "\" />")
+                                    <dl>
+                                        <dt>@t.ClickName</dt>
+                                        <dd>@t.ClickText</dd>
+                                    </dl>
+
+                                    <div id="wrapper-part-info">
+                                        <div class="part-info-image">
+                                            <img src="" alt="" width="28" height="28">
+                                        </div>
+                                        <div id="part-info">@t.Name</div>
+                                    </div>
+
+                                </a>
+                            </figure>
+                            <a href="#@t.Id" class="overlay" id="@t.Id"></a>
+                            <div class="popup">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/U8uoQggXiio?list=PLWpxuJBIZRlMCvaI96eyES8gsus4QAm44" frameborder="0" allowfullscreen></iframe>
+                                <a class="close" title="Закрыть" href="#close">Х</a>
+                            </div>
+                        }
+                    }
+
+                </section>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+
+
